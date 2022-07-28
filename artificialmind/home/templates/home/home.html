@@ -1,0 +1,403 @@
+{% extends "home/base.html" %}
+{% load static %}
+
+{% block head %}
+<meta name="keywords" content="Real-Time Translation" />
+<meta name="description" content="A real-time translation app for regional languages." />
+<meta name="author" content="Artificial Mind" />
+
+<title>Interpreter.ai</title>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins|Raleway:400,600|Righteous&display=swap" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" type="text/css" />
+<link rel="stylesheet" href="{% static 'home/css/bootstrap.css' %}" type="text/css" />
+<link rel="stylesheet" href="{% static 'home/css/responsive.css' %}" type="text/css" />
+<link rel="stylesheet" href="{% static 'home/css/style.css' %}" type="text/css" />
+<script src="{% static 'home/js/jquery-3.4.1.min.js' %}" type="text/javascript" defer></script>
+<script src="{% static 'home/js/bootstrap.js' %}" type="text/javascript" defer></script>
+{% endblock %}
+
+{% block content %} 
+<div class="hero_area">
+  <header class="header_section">
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg custom_nav-container">
+        <a class="navbar-brand" href="{% url 'home' %}"><span>Interpreter.ai</span></a>
+        <div class="navbar-collapse">
+          <div class="custom_menu-btn">
+            <button onclick="openNav()">
+              <span class="s-1"> </span>
+              <span class="s-2"> </span>
+              <span class="s-3"> </span>
+            </button>
+          </div>
+          <div id="myNav" class="overlay">
+            <div class="overlay-content">
+              <a href="{% url 'home' %}">Home</a>
+              <a href="#about">About</a>
+              <a href="#feature">Features</a>
+              <a href="#contact">Contact Us</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="slider_section position-relative">
+    <div class="container">
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="slider_item-box">
+              <div class="slider_item-container">
+                <div class="slider_item-detail">
+                  <h1>Conversation Mode</h1>
+                  <p>Connect with another phone that uses this app.</p>
+                  <div>
+                    <a href="{% url 'conversation' %}">Learn More</a>
+                  </div>
+                </div>
+                <div class="slider_item-imgbox">
+                  <img src="{% static 'home/images/conversation.png' %}" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="slider_item-box">
+              <div class="slider_item-container">
+                <div class="slider_item-detail">
+                  <h1>Walkie Talkie Mode</h1>
+                  <p>Designed for quick conversations, works with only one phone.</p>
+                  <div>
+                    <a href="{% url 'under' %}">Learn More</a>
+                  </div>
+                </div>
+                <div class="slider_item-imgbox">
+                  <img src="{% static 'home/images/walkie.png' %}" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="slider_item-box">
+              <div class="slider_item-container">
+                <div class="slider_item-detail">
+                  <h1>Image Translation</h1>
+                  <p>Capture and translate street hoardings, menus or instructions and save it as a PDF file.</p>
+                  <div>
+                    <a href="{% url 'under' %}">Learn More</a>
+                  </div>
+                </div>
+                <div class="slider_item-imgbox">
+                  <img src="{% static 'home/images/image.png' %}" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="slider_item-box">
+              <div class="slider_item-container">
+                <div class="slider_item-detail">
+                  <h1>Mute Translator</h1>
+                  <p>Convert sign language to regional language.</p>
+                  <div>
+                    <a href="{% url 'under' %}">Learn More</a>
+                  </div>
+                </div>
+                <div class="slider_item-imgbox">
+                  <img src="{% static 'home/images/mute.png' %}" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="slider_item-box">
+              <div class="slider_item-container">
+                <div class="slider_item-detail">
+                  <h1>Group Conversation</h1>
+                  <p>Can identify multiple languages in the same conversation simultaneously.</p>
+                  <div>
+                    <a href="{% url 'under' %}">Learn More</a>
+                  </div>
+                </div>
+                <div class="slider_item-imgbox">
+                  <img src="{% static 'home/images/group.png' %}" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="slider_item-box">
+              <div class="slider_item-container">
+                <div class="slider_item-detail">
+                  <h1>Save and Share</h1>
+                  <p>Save translations and share them with others.</p>
+                  <div>
+                    <a href="{% url 'under' %}">Learn More</a>
+                  </div>
+                </div>
+                <div class="slider_item-imgbox">
+                  <img src="{% static 'home/images/share.png' %}" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <span class="sr-only">Next</span>
+    </a>
+  </section>
+</div>
+
+<section class="about_section layout_padding">
+  <div class="container">
+    <h2 class="text-uppercase">Value Propositions</h2>
+  </div>
+  <div class="container">
+    <div class="about_card-container layout_padding2-top">
+      <div class="about_card">
+        <div class="about-detail">
+          <div class="about_img-container">
+            <div class="about_img-box">
+              <img src="{% static 'home/images/phone.png' %}" alt="" />
+            </div>
+          </div>
+          <div class="card_detail-ox">
+            <h4>Accurate Translation</h4>
+            <p>
+              Translate with >92% accuracy!
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="about_card">
+        <div class="about-detail">
+          <div class="about_img-container">
+            <div class="about_img-box">
+              <img src="{% static 'home/images/camera.png' %}" alt="" />
+            </div>
+          </div>
+          <div class="card_detail-ox">
+            <h4>Flexible Use</h4>
+            <p>
+              Put an image, video or text in the screen and get translations!
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="about_card">
+        <div class="about-detail">
+          <div class="about_img-container">
+            <div class="about_img-box">
+              <img src="{% static 'home/images/gift.png' %}" alt="" />
+            </div>
+          </div>
+          <div class="card_detail-ox">
+            <h4>Free to Use</h4>
+            <p>
+              This website is free to use and learn.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="who_section" id="about">
+  <div class="container who_container">
+    <div class="who_img-box">
+      <img src="{% static 'home/images/about.png' %}" alt="" />
+    </div>
+    <div class="who_deail-box">
+      <h2>What is Interpreter.ai?</h2>
+      <p>
+        It is an efficient tool for Real Time Translations for Regional Languages, it has fun features like Conversation Mode, Walkie Talkie Mode, and more. It is cost-free to use and accurately translates any language into your regional language.
+        <br/><br/>
+        Even mute and deaf persons can benefit from some outstanding capabilities of Interpreter.ai. Anyone can benefit from using it, from students to travellers from other countries. It has the potential to be incredibly helpful and can result in a successful outcome.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="feature_section layout_padding" id="feature">
+  <div class="container">
+    <h2 class="text-uppercase">Our Features</h2>
+  </div>
+  <div>
+    <div class="feature_card-container layout_padding2">
+      <div class="feature_card">
+        <div class="feature_img-container">
+          <div class="feature_img-box">
+            <img src="{% static 'home/images/conversation.png' %}" alt="" />
+          </div>
+        </div>
+        <div class="feature_detail-box">
+          <h4>Conversation Mode</h4>
+          <p>Connect with another phone that uses this app.</p>
+        </div>
+      </div>
+      <div class="feature_card">
+        <div class="feature_img-container">
+          <div class="feature_img-box">
+            <img src="{% static 'home/images/walkie.png' %}" alt="" />
+          </div>
+        </div>
+        <div class="feature_detail-box">
+          <h4>Walkie Talkie Mode</h4>
+          <p>Designed for quick conversations, works with only one phone.</p>
+        </div>
+      </div>
+      <div class="feature_card">
+        <div class="feature_img-container">
+          <div class="feature_img-box">
+            <img src="{% static 'home/images/image.png' %}" alt="" />
+          </div>
+        </div>
+        <div class="feature_detail-box">
+          <h4>Image Translation</h4>
+          <p>Capture and translate street hoardings, menus or instructions and save it as a PDF file.</p>
+        </div>
+      </div>
+      <div class="feature_card">
+        <div class="feature_img-container">
+          <div class="feature_img-box">
+            <img src="{% static 'home/images/mute.png' %}" alt="" />
+          </div>
+        </div>
+        <div class="feature_detail-box">
+          <h4>Mute Translator</h4>
+          <p>Convert sign language to regional language.</p>
+        </div>
+      </div>
+      <div class="feature_card">
+        <div class="feature_img-container">
+          <div class="feature_img-box">
+            <img src="{% static 'home/images/group.png' %}" alt="" />
+          </div>
+        </div>
+        <div class="feature_detail-box">
+          <h4>Group Conversation</h4>
+          <p>Can identify multiple languages in the same conversation simultaneously.</p>
+        </div>
+      </div>
+      <div class="feature_card">
+        <div class="feature_img-container">
+          <div class="feature_img-box">
+            <img src="{% static 'home/images/share.png' %}" alt="" />
+          </div>
+        </div>
+        <div class="feature_detail-box">
+          <h4>Save and Share</h4>
+          <p>Save translations and share them with others.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact_section" id="contact">
+  <div class="container d-flex justify-content-center">
+    <h2 class="text-uppercase">Get in touch</h2>
+  </div>
+  <div class="container-fluid layout_padding-top">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="col-md-10 offset-md-2">
+          <div class="contact_img-box">
+            <img src="{% static 'home/images/contact.png' %}" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 form_bg px-0">
+        <div class="col-md-10 px-0">
+          <form action="" method="POST">
+            {% csrf_token %}
+            <div class="contact_form-container">
+              <div>
+                <div>
+                  <input type="text" name="name" id="name" placeholder="Name" required />
+                </div>
+                <div>
+                  <input type="email" name="email" id="email" placeholder="Email" required />
+                </div>
+                <div>
+                  <input type="tel" name="phone" id="phone" pattern="[0-9]{10}" placeholder="Phone Number" required />
+                </div>
+                <div>
+                  <textarea name="message" id="message" placeholder="Message" class="message_input" required></textarea>
+                </div>
+                <div class="mt-3 d-flex justify-content-end">
+                  <button type="submit">Send</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="info_section layout_padding">
+  <div class="container info_content">
+    <div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="d-flex">
+            <h5>Features</h5>
+          </div>
+          <div class="d-flex">
+            <ul>
+              <li><a href="{% url 'conversation' %}">Conversation Mode</a></li>
+              <li><a href="{% url 'under' %}">Walkie Talkie Mode</a></li>
+              <li><a href="{% url 'under' %}">Image Translation</a></li>
+              <li><a href="{% url 'under' %}">Mute Translator</a></li>
+              <li><a href="{% url 'under' %}">Group Conversation</a></li>
+              <li><a href="{% url 'under' %}">Save and Share</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="d-flex">
+            <h5>Helpful Links</h5>
+          </div>
+          <div class="d-flex ">
+            <ul>
+              <li><a href="{% url 'home' %}">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#feature">Features</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="d-flex">
+            <h5>Contact Us</h5>
+          </div>
+          <div class="d-flex ">
+            <ul>
+              <li><a href="">G. H. Raisoni College of Engineering, Nagpur</a></li>
+              <li><a href="">artificialminds@gmail.com</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function openNav() {
+    document.getElementById("myNav").classList.toggle("menu_width");
+    document.querySelector(".custom_menu-btn").classList.toggle("menu_btn-style");
+  }
+</script>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "conversation/base.html" %}
+{% load static %}
+
+{% block head %}
+<title>Conversation Mode</title>
+<link rel="stylesheet" href="{% static 'conversation/style.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="center-fix" align="center">
+  <h2>Conversation Mode</h2>
+</div>
+<div class="container">
+  <form id="post-form" method="POST" action="checkview">
+    {% csrf_token %}
+    <label><strong>Room Name</strong></label>
+    <input type="text" name="room_name" id="room_name" width="100px" />
+    <label><strong>Username</strong></label>
+    <input type="text" name="username" id="username" width="100px" />
+    <input type="submit" value="Enter Room">
+  </form>
+</div>
+{% endblock %}

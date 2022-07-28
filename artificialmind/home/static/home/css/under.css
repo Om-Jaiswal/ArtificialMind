@@ -1,0 +1,80 @@
+.container-c {
+  height: 60vh;
+  width: 100%;
+}
+
+.container-c .wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.container-c .wrapper .content {
+  padding: 1rem;
+  color: #000;
+}
+
+.container-c .wrapper .content h1 {
+  font-size: 3rem;
+  color: #000;
+}
+
+.container-c .wrapper .content p {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #000;
+}
+
+.container-c .wrapper .content a {
+  display: inline-block;
+  padding: 2.1% 4%;
+  overflow: hidden;
+  border-radius: 25px;
+  text-decoration: none;
+}
+
+.btn-h {
+  color: #000;
+  font-weight: 900;
+  border: 2px solid #000;
+  transition: 0.2s ease-in-out;
+}
+
+.btn-h:hover {
+  border: 1px solid white;
+  background-color: #000;
+  color: white;
+  transition: 0.2s ease-in-out;
+}
+
+@media screen and (max-width: 355px) {
+  .container-c .content {
+    padding: 1rem 1.4rem;
+  }
+
+  .container-c .content h1 {
+    font-size: 2.5rem;
+  }
+
+  .container-c .content .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+@media screen and (min-width: 356px) and (max-width: 650px) {
+  .container-c .content {
+    padding: 1rem 1.4rem;
+  }
+
+  .container-c .content .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+  }
+}
