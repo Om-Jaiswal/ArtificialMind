@@ -6,7 +6,7 @@ from django.http import HttpResponse, JsonResponse
 # Create your views here.
 def conversation(request):
     context = {
-        "lang_list" : [
+        "lang_list" : sorted([
             "Acehnese (Arabic script)","Acehnese (Latin script)","Mesopotamian Arabic","Ta’izzi-Adeni Arabic","Tunisian Arabic","Afrikaans","South Levantine Arabic","Akan","Amharic","North Levantine Arabic",
             "Modern Standard Arabic","Modern Standard Arabic (Romanized)","Najdi Arabic","Moroccan Arabic","Egyptian Arabic","Assamese","Asturian","Awadhi","Central Aymara","South Azerbaijani","North Azerbaijani",
             "Bashkir","Bambara","Balinese","Belarusian","Bemba","Bengali","Bhojpuri","Banjar (Arabic script)","Banjar (Latin script)","Standard Tibetan","Bosnian","Buginese","Bulgarian","Catalan","Cebuano","Czech",
@@ -21,7 +21,7 @@ def conversation(request):
             "Silesian","Tamil","Tatar","Telugu","Tajik","Tagalog","Thai","Tigrinya","Tamasheq (Latin script)","Tamasheq (Tifinagh script)","Tok Pisin","Tswana","Tsonga","Turkmen","Tumbuka","Turkish","Twi",
             "Central Atlas Tamazight","Uyghur","Ukrainian","Umbundu","Urdu","Northern Uzbek","Venetian","Vietnamese","Waray","Wolof","Xhosa","Eastern Yiddish","Yoruba","Yue Chinese","Chinese (Simplified)",
             "Chinese (Traditional)","Standard Malay","Zulu"
-        ]
+        ])
     }
     return render(request, 'conversation/conversation.html', context)
 
