@@ -17,6 +17,13 @@
     <input type="text" name="room_name" id="room_name" width="100px" />
     <label><strong>Username</strong></label>
     <input type="text" name="username" id="username" width="100px" />
+    <label><strong>Language</strong></label>
+    <input type="text" list="languages" placeholder="---Select---" name="language" id="language" width="100px" />
+    <datalist id="languages">
+      {% for lang in lang_list %}
+      <option value="{{lang}}">
+      {% endfor %}
+    </datalist>
     <input type="submit" value="Enter Room">
   </form>
 </div>

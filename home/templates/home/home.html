@@ -34,9 +34,9 @@
           <div id="myNav" class="overlay">
             <div class="overlay-content">
               <a href="{% url 'home' %}">Home</a>
-              <a href="#about">About</a>
-              <a href="#feature">Features</a>
-              <a href="#contact">Contact Us</a>
+              <a href="#about" onclick="openNav()">About</a>
+              <a href="#feature" onclick="openNav()">Features</a>
+              <a href="#contact" onclick="openNav()">Contact Us</a>
             </div>
           </div>
         </div>
@@ -236,6 +236,7 @@
       <div class="feature_card">
         <div class="feature_img-container">
           <div class="feature_img-box">
+            <a href="{% url 'conversation' %}" class="learn-more"><img src="{% static 'home/images/arrow.png' %}" alt="" /></a>
             <img src="{% static 'home/images/conversation.png' %}" alt="" />
           </div>
         </div>
@@ -247,6 +248,7 @@
       <div class="feature_card">
         <div class="feature_img-container">
           <div class="feature_img-box">
+            <a href="{% url 'under' %}" class="learn-more"><img src="{% static 'home/images/arrow.png' %}" alt="" /></a>
             <img src="{% static 'home/images/walkie.png' %}" alt="" />
           </div>
         </div>
@@ -258,6 +260,7 @@
       <div class="feature_card">
         <div class="feature_img-container">
           <div class="feature_img-box">
+            <a href="{% url 'under' %}" class="learn-more"><img src="{% static 'home/images/arrow.png' %}" alt="" /></a>
             <img src="{% static 'home/images/image.png' %}" alt="" />
           </div>
         </div>
@@ -269,6 +272,7 @@
       <div class="feature_card">
         <div class="feature_img-container">
           <div class="feature_img-box">
+            <a href="{% url 'under' %}" class="learn-more"><img src="{% static 'home/images/arrow.png' %}" alt="" /></a>
             <img src="{% static 'home/images/mute.png' %}" alt="" />
           </div>
         </div>
@@ -280,6 +284,7 @@
       <div class="feature_card">
         <div class="feature_img-container">
           <div class="feature_img-box">
+            <a href="{% url 'under' %}" class="learn-more"><img src="{% static 'home/images/arrow.png' %}" alt="" /></a>
             <img src="{% static 'home/images/group.png' %}" alt="" />
           </div>
         </div>
@@ -291,6 +296,7 @@
       <div class="feature_card">
         <div class="feature_img-container">
           <div class="feature_img-box">
+            <a href="{% url 'under' %}" class="learn-more"><img src="{% static 'home/images/arrow.png' %}" alt="" /></a>
             <img src="{% static 'home/images/share.png' %}" alt="" />
           </div>
         </div>
@@ -318,7 +324,7 @@
       </div>
       <div class="col-md-6 form_bg px-0">
         <div class="col-md-10 px-0">
-          <form action="" method="POST">
+          <form action="{% url 'submitForm' %}" method="POST">
             {% csrf_token %}
             <div class="contact_form-container">
               <div>

@@ -31,9 +31,9 @@
             <div id="myNav" class="overlay">
               <div class="overlay-content">
                 <a href="{% url 'home' %}">Home</a>
-                <a href="#about">About</a>
-                <a href="#feature">Features</a>
-                <a href="#contact">Contact Us</a>
+                <a href="{% url 'home' %}#about">About</a>
+                <a href="{% url 'home' %}#feature">Features</a>
+                <a href="{% url 'home' %}#contact">Contact Us</a>
               </div>
             </div>
           </div>
@@ -78,9 +78,9 @@
             <div class="d-flex ">
               <ul>
                 <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#feature">Features</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="{% url 'home' %}#about">About</a></li>
+                <li><a href="{% url 'home' %}#feature">Features</a></li>
+                <li><a href="{% url 'home' %}#contact">Contact</a></li>
               </ul>
             </div>
           </div>

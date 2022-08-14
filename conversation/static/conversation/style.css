@@ -1,12 +1,20 @@
 body {
-    background-image: url('/static/conversation/images/hero.png');
+    background: url('/static/conversation/images/hero.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
     margin: 0 auto;
-    max-width: 800px;
+    max-width: 600px;
     padding: 0 20px;
 }
 
 .center-fix {
     margin-top: 150px;
+}
+
+.center-fix h2 {
+    color: #000;
 }
 
 .container {
@@ -18,8 +26,8 @@ body {
 }
   
 .darker {
-    border-color: #ccc;
-    background-color: #ddd;
+    border-color: #000;
+    background-color: #fff;
 }
   
 .container::after {
@@ -44,12 +52,12 @@ body {
   
 .time-right {
     float: right;
-    color: #aaa;
+    color: #000;
 }
   
 .time-left {
     float: left;
-    color: #999;
+    color: #000;
 }
 
 input[type=text], select {
@@ -64,8 +72,9 @@ input[type=text], select {
 
 input[type=submit] {
     width: 100%;
-    background-color: #4CAF50;
+    background-color: #000;
     color: white;
+    font-weight: 700;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
@@ -74,7 +83,9 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-    background-color: #45a049;
+    color: #000;
+    background-color: #fff;
+    border: 2px solid black;
 }
 
 div {
