@@ -2,7 +2,9 @@ import contextlib
 from django.shortcuts import render, redirect
 from conversation.models import Room, Message
 from django.http import HttpResponse, JsonResponse
+# from translate import Translate
 
+# translator = Translate()
 # Create your views here.
 def conversation(request):
     context = {
@@ -55,4 +57,7 @@ def send(request):
 def getMessages(request, room):
     room_details = Room.objects.get(name=room)
     messages = Message.objects.filter(room=room_details.id)
+    # lang = ?
+    # traslation = translator.translate(messages.values())
+    # return JsonResponse({"messages":list(translation)})
     return JsonResponse({"messages":list(messages.values())})
