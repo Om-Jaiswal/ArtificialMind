@@ -28,10 +28,12 @@ def conversation(request):
 def room(request, room):
     username = request.GET.get('username')
     room_details = Room.objects.get(name=room)
+    language = request.GET.get('language')
     return render(request, 'conversation/room.html', {
         'username': username,
         'room': room,
-        'room_details': room_details
+        'room_details': room_details,
+        'language': language
     })
 
 def checkview(request):
@@ -48,7 +50,8 @@ def send(request):
     message = request.POST['message']
     username = request.POST['username']
     room_id = request.POST['room_id']
-    new_message = Message.objects.create(value=message, user=username, room=room_id)
+    language = request.POST['language']
+    new_message = Message.objects.create(value=message, user=username, room=room_id, lang=language)
     new_message.save()
     return HttpResponse('Message sent successfully')
 
