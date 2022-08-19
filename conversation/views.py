@@ -3,6 +3,8 @@ from django.shortcuts import render, redirect
 from conversation.models import Room, Message
 from django.http import HttpResponse, JsonResponse
 
+LANGUAGE = ''
+
 # Create your views here.
 def conversation(request):
     context = {
@@ -27,18 +29,20 @@ def conversation(request):
 
 def room(request, room):
     username = request.GET.get('username')
-    room_details = Room.objects.get(name=room)
     language = request.GET.get('language')
+    room_details = Room.objects.get(name=room)
     return render(request, 'conversation/room.html', {
         'username': username,
+        'language': language,
         'room': room,
-        'room_details': room_details,
-        'language': language
+        'room_details': room_details
     })
 
 def checkview(request):
     room = request.POST['room_name']
     username = request.POST['username']
+    global LANGUAGE 
+    LANGUAGE = request.POST['language']
     if Room.objects.filter(name=room).exists():
         return redirect('/'+room+'/?username='+username)
     else:
@@ -49,9 +53,9 @@ def checkview(request):
 def send(request):
     message = request.POST['message']
     username = request.POST['username']
+    language = LANGUAGE
     room_id = request.POST['room_id']
-    language = request.POST['language']
-    new_message = Message.objects.create(value=message, user=username, room=room_id, lang=language)
+    new_message = Message.objects.create(value=message, user=username, lang=language, room=room_id)
     new_message.save()
     return HttpResponse('Message sent successfully')
 
