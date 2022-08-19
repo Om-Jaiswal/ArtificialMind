@@ -1,0 +1,80 @@
+body {
+    background: url('/static/imagetranslate/images/hero.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 0 20px;
+    padding-top: 100px;
+}
+
+.container {
+    border: 2px solid #fff;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.container h2 {
+    text-align: center;
+}
+
+.uploadImage{
+    text-align: center;
+    padding: 3%;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.uploadImage input{
+    display: none;
+}
+
+.uploadImage label{
+    cursor:pointer;
+}
+  
+.uploadImage #imageName{
+    color:green;
+}
+
+label strong {
+    padding-left: 20px;
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    box-sizing: border-box;
+}
+
+.uploadButton {
+    text-align: center;
+}
+
+.uploadButton button {
+    margin: 15px auto;
+    padding: 5px 25px;
+    border: 2px solid black;
+    border-radius: 25px;
+    font-weight: 600;
+    background-color: #fff;
+}
+
+.uploadButton button:hover {
+    color: #fff;
+    background-color: #000;
+}
+
+img {
+    height: 200px;
+    width: 200px;
+}

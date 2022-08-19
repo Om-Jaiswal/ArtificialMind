@@ -1,0 +1,53 @@
+{% extends "imagetranslate/base.html" %}
+{% load static %}
+
+{% block head %}
+<title>Image Translation</title>
+<link rel="stylesheet" href="{% static 'imagetranslate/style.css' %}">
+<script src="https://use.fontawesome.com/3a2eaf6206.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Image Translation</h2>
+</div>
+<div class="container">
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="uploadImage">
+            <label for="inputTag">
+                <strong>Select Image </strong>
+                <br/><br/>
+                <i class="fa fa-2x fa-camera"></i>
+                <input id="inputTag" type="file" name="images" multiple/>
+                <br/>
+                <span id="imageName"></span>
+            </label>
+        </div>
+        <label><strong>Language</strong></label>
+        <input type="text" list="languages" placeholder="---Select---" name="language" id="language"/>
+        <datalist id="languages">
+            {% for lang in lang_list %}
+            <option value="{{lang}}">
+            {% endfor %}
+        </datalist>
+        <div class="uploadButton">
+            <button>Submit</button>
+        </div>
+    </form>
+    <hr>
+    <h3>Translated Text:</h3>
+    {% for img in images %}
+    <img src="{{img.images.url}}" alt="Image">
+</div>
+<script>
+    let input = document.getElementById("inputTag");
+    let imageName = document.getElementById("imageName");
+
+    input.addEventListener("change", ()=>{
+        let inputImage = document.querySelector("input[type=file]").files[0];
+        imageName.innerText = inputImage.name;
+    })
+</script>
+{% endfor %}
+{% endblock %}
