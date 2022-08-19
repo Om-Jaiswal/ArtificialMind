@@ -10,6 +10,8 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install require
 pip install -r requirements.txt
 ```
 
+Download model checkpoint [click here!]() and place it in `model\seq2seqLM-nllb-600M`
+
 ## Usage
 
 ```python
