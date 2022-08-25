@@ -82,9 +82,13 @@ def send(request):
     langs_in_room = LANGUAGES[room_name]
 
     new_message = ''
+    
     for lang in langs_in_room:
-        new_message = new_message + "<br>" + translator.translate(message, lang=lang2code[lang])
-
+        if new_message=='':
+            new_message = translator.translate(message, lang=lang2code[lang]) +  " (" + lang + ") "
+        else:
+            new_message = new_message + "<br>" + translator.translate(message, lang=lang2code[lang]) +  " (" + lang + ") "
+    
     new_message = Message.objects.create(value=new_message, user=username, lang=language, room=room_id)
     new_message.save()
     return HttpResponse('Message sent successfully')

@@ -4,6 +4,7 @@
 {% block head %}
 <title>Image Translation</title>
 <link rel="stylesheet" href="{% static 'imagetranslate/style.css' %}">
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 <script src="https://use.fontawesome.com/3a2eaf6206.js"></script>
 {% endblock %}
 
@@ -24,19 +25,27 @@
                 <span id="imageName"></span>
             </label>
         </div>
-        <label><strong>Language</strong></label>
-        <input type="text" list="languages" placeholder="---Select---" name="language" id="language"/>
-        <datalist id="languages">
-            {% for lang in lang_list %}
+        <label><strong>Image Language</strong></label>
+        <input type="text" list="ocr_languages" placeholder="---Select---" name="ilanguage" id="ilanguage"/>
+        <datalist id="ilanguage">
+            {% for lang in ocr_languages %}
+            <option value="{{lang}}">
+            {% endfor %}
+        </datalist>
+        <label><strong>Translation Language</strong></label>
+        <input type="text" list="translation_languages" placeholder="---Select---" name="tlanguage" id="tlanguage"/>
+        <datalist id="tlanguage">
+            {% for lang in tralslation_languages %}
             <option value="{{lang}}">
             {% endfor %}
         </datalist>
         <div class="uploadButton">
-            <button>Submit</button>
+            <button type="submit">Submit</button>
         </div>
     </form>
     <hr>
     <h3>Translated Text:</h3>
+    <p>{{ translation }}</p>
     {% for img in images %}
     <img src="{{img.images.url}}" alt="Image">
 </div>
