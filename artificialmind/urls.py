@@ -21,5 +21,6 @@ urlpatterns = [
     path('', include("home.urls")),
     path('', include('imagetranslate.urls')),
     path('', include('mutetranslate.urls')),
+    path('', include("walktalkie.urls")),
     path('', include("conversation.urls"))
 ]

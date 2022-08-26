@@ -1,0 +1,35 @@
+{% extends "walktalkie/base.html" %}
+{% load static %}
+
+{% block head %}
+<title>Walkie-Talkie Mode</title>
+<link rel="stylesheet" type="text/css" href="{% static 'walktalkie/style.css' %}">
+{% endblock %}
+
+{% block content %}
+<h1>Walkie-Talkie Mode</h1>
+<div id="controls">
+  	<button id="recordButton">Record</button>
+  	<button id="pauseButton" disabled>Pause</button>
+  	<button id="stopButton" disabled>Stop</button>
+</div>
+
+<div id="formats">Format: start recording to see sample rate</div>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <label><strong>Language:</strong></label>
+    <input type="text" list="languages" placeholder="---Select---" name="language" id="language" width="100px" />
+    <datalist id="languages">
+        {% for lang in lang_list %}
+            <option value="{{lang}}">
+        {% endfor %}
+    </datalist>
+</form>
+
+<p><strong>Recordings:</strong></p>
+<ol id="recordingsList"></ol>
+
+<script src="{% static 'walktalkie/js/recorder.js' %}"></script>
+<script src="{% static 'walktalkie/js/app.js' %}"></script>
+{% endblock %}
