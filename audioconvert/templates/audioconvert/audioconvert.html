@@ -1,0 +1,62 @@
+{% extends "audioconvert/base.html" %}
+{% load static %}
+
+{% block head %}
+<title>Audio Converter</title>
+<link rel="stylesheet" href="{% static 'audioconvert/style.css' %}">
+<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script src="https://use.fontawesome.com/3a2eaf6206.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Audio Conversion</h2>
+</div>
+<div class="container">
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="uploadAudio">
+            <label for="inputTag">
+                <strong>Select Audio </strong>
+                <br/><br/>
+                <i class="fa fa-2x fa-camera"></i>
+                <input id="inputTag" type="file" name="audios" multiple/>
+                <br/>
+                <span id="audioName"></span>
+            </label>
+        </div>
+        <label><strong>Audio Language</strong></label>
+        <input type="text" list="ocr_languages" placeholder="---Select---" name="ilanguage" id="ilanguage"/>
+        <datalist id="ilanguage">
+            {% for lang in ocr_languages %}
+            <option value="{{lang}}">
+            {% endfor %}
+        </datalist>
+        <label><strong>Translation Language</strong></label>
+        <input type="text" list="translation_languages" placeholder="---Select---" name="tlanguage" id="tlanguage"/>
+        <datalist id="tlanguage">
+            {% for lang in tralslation_languages %}
+            <option value="{{lang}}">
+            {% endfor %}
+        </datalist>
+        <div class="uploadButton">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+    <hr>
+    <h3>Translated Text:</h3>
+    <p>{{ translation }}</p>
+    {% for aud in audios %}
+    <img src="{{aud.audios.url}}" alt="Audio">
+</div>
+<script>
+    let input = document.getElementById("inputTag");
+    let imageName = document.getElementById("audioName");
+
+    input.addEventListener("change", ()=>{
+        let inputAudio = document.querySelector("input[type=file]").files[0];
+        audioName.innerText = inputAudio.name;
+    })
+</script>
+{% endfor %}
+{% endblock %}
