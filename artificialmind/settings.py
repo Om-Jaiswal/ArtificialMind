@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'conversation.apps.ConversationConfig',
     'imagetranslate.apps.ImagetranslateConfig',
     'mutetranslate.apps.MutetranslateConfig',
+    'walktalkie.apps.WalktalkieConfig',
 ]
 
 MIDDLEWARE = [
