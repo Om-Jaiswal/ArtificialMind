@@ -1,0 +1,31 @@
+{% extends "mutetranslate/base.html" %}
+{% load static %}
+
+{% block head %}
+<title>Mute Translator</title>
+<link type="text/css" rel="stylesheet" href="{% static 'mutetranslate/style.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="center-fix" align="center">
+    <h2>Mute Translator</h2>
+</div>
+<div class="lang-select">
+<form action="" method="POST">
+    {% csrf_token %}
+    <label><strong>Language:</strong></label>
+    <input type="text" list="languages" placeholder="---Select---" name="language" id="language" width="100px" />
+    <datalist id="languages">
+        {% for lang in lang_list %}
+            <option value="{{lang}}">
+        {% endfor %}
+    </datalist>
+</form>
+<button type="button" onclick="init()">Start</button>
+</div>
+<div class="camera-frame"><canvas id="canvas"></canvas></div>
+<div id="label-container"></div>
+<script src="{% static 'mutetranslate/script.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/pose@0.8/dist/teachablemachine-pose.min.js"></script>
+{% endblock %}

@@ -20,5 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("home.urls")),
     path('', include('imagetranslate.urls')),
+    path('', include('mutetranslate.urls')),
     path('', include("conversation.urls"))
 ]
